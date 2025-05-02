@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Weather Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .icon { font-family: Arial, sans-serif; } /* Fallback for symbols */
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1><span class="icon">☂</span> India Weather</h1>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="location-input" placeholder="Search Indian city..." autocomplete="off" list="india-cities">
+                    <datalist id="india-cities">
+                        <!-- Indian cities will be populated by JavaScript -->
+                    </datalist>
+                    <button type="button" id="search-btn" aria-label="Search">
+                        <span class="icon">🔍</span>
+                    </button>
+                    <button type="button" id="location-btn" aria-label="Use current location">
+                        <span class="icon">📍</span>
+                    </button>
+                </div>
+                <div class="theme-toggle">
+                    <button type="button" id="theme-btn" aria-label="Toggle theme">
+                        <span class="icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="current-weather">
+                <div class="location-time">
+                    <h1 id="location">--</h1>
+                    <p id="date-time">--</p>
+                </div>
+                <div class="weather-main">
+                    <div class="temperature">
+                        <span id="current-temp">--</span>
+                        <span class="unit-toggle">
+                            <button type="button" class="unit active" id="celsius" aria-label="Celsius">°C</button>
+                            <button type="button" class="unit" id="fahrenheit" aria-label="Fahrenheit">°F</button>
+                        </span>
+                    </div>
+                    <div class="weather-condition">
+                        <div id="weather-icon">
+                            <span class="icon">❓</span>
+                        </div>
+                        <p id="weather-desc">--</p>
+                    </div>
+                </div>
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <span class="icon">💨</span>
+                        <span id="wind-speed">-- km/h</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">💧</span>
+                        <span id="humidity">--%</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">🌡</span>
+                        <span id="feels-like">--°</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">👁</span>
+                        <span id="visibility">-- km</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hourly-forecast">
+                <h2>Today's Forecast</h2>
+                <div class="hourly-container" id="hourly-container">
+                    <!-- Hourly items will be added here by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="forecast-container">
+                <h2>5-Day Forecast</h2>
+                <div class="forecast-days" id="forecast-days">
+                    <!-- Forecast items will be added here by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="air-quality">
+                <h2>Air Quality Index</h2>
+                <div class="aqi-container" id="aqi-container">
+                    <div class="aqi-meter">
+                        <div class="aqi-progress" id="aqi-progress"></div>
+                    </div>
+                    <div class="aqi-value" id="aqi-value">--</div>
+                    <div class="aqi-category" id="aqi-category">--</div>
+                </div>
+            </div>
+        </main>
+        
+        <div class="loading-container" id="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+        
+        <div class="error-container" id="error-container"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
